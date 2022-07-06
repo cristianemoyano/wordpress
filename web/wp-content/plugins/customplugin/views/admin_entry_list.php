@@ -1,16 +1,10 @@
-<?php
+<?php $testListTable = CustomPlugin::prepare_table(); ?>
+<div class="wrap">
+    <h1 class="wp-heading-inline"><?php CustomPlugin::_('Custom Plugin'); ?></h1>
+    <a href=<?php echo get_admin_url() . 'admin.php?page=addnewentry' ?> class="page-title-action button-secondary button">Agregar</a>
 
-include( plugin_dir_path(__FILE__) . 'table.php');
-
-//Create an instance of our package class...
-$testListTable = new Entry_Table();
-//Fetch, prepare, sort, and filter our data...
-$testListTable->prepare_items();
-
-
-?>
-<h1>Entradas <a href=<?php echo get_admin_url() . 'admin.php?page=addnewentry' ?> class="button-secondary button">Agregar</a></h1>
-
+    <h3><?php CustomPlugin::_('Registros'); ?></h3>
+    <p><?php CustomPlugin::_('Listado de registros realizados en este sitio.'); ?></p>
 
 <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
 <form id="entry-filter" method="get" style="width: 90%;">
@@ -20,7 +14,6 @@ $testListTable->prepare_items();
     <?php 
         $testListTable->search_box("Buscar", "name");
         $testListTable->display();
-        
     ?>
-    
 </form>
+</div>
