@@ -1,0 +1,198 @@
+2022-07-06T15:27:19+00:00 CRITICAL Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type resource, null given in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-filesystem-ftpext.php:420
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-filesystem-ftpext.php(420): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/woocommerce/includes/integrations/maxmind-geolocation/class-wc-integration-maxmind-geolocation.php(182): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): WC_Integration_MaxMind_Geolocation->update_database()
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(524): WP_Hook->do_action(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-cron.php(138): do_action_ref_array('woocommerce_geo...', Array)
+#6 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-filesystem-ftpext.php on line 420
+
+2022-07-06T19:12:05+00:00 CRITICAL Uncaught TypeError: usort(): Argument #1 ($array) must be of type array, null given in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:269
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php(269): usort(NULL, 'usort_reorder')
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(8): Entry_Table->prepare_items()
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#7 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 269
+
+2022-07-06T19:14:21+00:00 CRITICAL Uncaught TypeError: usort(): Argument #1 ($array) must be of type array, null given in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:269
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php(269): usort(NULL, 'usort_reorder')
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(8): Entry_Table->prepare_items()
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#7 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 269
+
+2022-07-06T19:16:22+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:20:30+00:00 CRITICAL syntax error, unexpected token "=>" in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 229
+
+2022-07-06T19:20:38+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:20:50+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:20:53+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:21:57+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:23:21+00:00 CRITICAL Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:253
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php(253): json_decode(Array, true)
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(8): Entry_Table->prepare_items()
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#7 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 253
+
+2022-07-06T19:23:54+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:24:33+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:99
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1433): Entry_Table->column_cb(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 99
+
+2022-07-06T19:25:22+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:46
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1450): Entry_Table->column_default(Object(stdClass), 'name')
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(29): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('toplevel_page_m...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 46
+
+2022-07-06T19:34:16+00:00 CRITICAL syntax error, unexpected token "}" in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 190
+
+2022-07-06T19:47:55+00:00 CRITICAL syntax error, unexpected variable "$testListTable" in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php on line 21
+
+2022-07-06T19:51:54+00:00 CRITICAL Unclosed '(' does not match ']' in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 205
+
+2022-07-06T19:52:35+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php:295
+Stack trace:
+#0 [internal function]: usort_reorder(Object(stdClass), Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php(298): usort(Array, 'usort_reorder')
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/displaylist.php(8): Entry_Table->prepare_items()
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/customplugin.php(67): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): displayList('')
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('custom-plugin_p...')
+#8 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 295
+
+2022-07-06T20:19:13+00:00 CRITICAL syntax error, unexpected token "}" in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/table.php on line 284
+
