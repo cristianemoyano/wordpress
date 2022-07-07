@@ -14,7 +14,7 @@ if(!class_exists('WP_List_Table')){
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
  }
 
-include_once( 'classes/class.custom-plugin.php' );
+require_once( 'classes/class.custom-plugin.php' );
 
 
 register_activation_hook( __FILE__, 'CustomPlugin::create_plugin_table' );

@@ -1,6 +1,6 @@
 <?php
 
-include_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
+require_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
 
 class Entry_Table extends WP_List_Table {
 
