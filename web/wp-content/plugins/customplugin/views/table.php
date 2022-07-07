@@ -128,9 +128,9 @@ class Entry_Table extends WP_List_Table {
     function get_columns(){
         $columns = array(
             'cb'        => '<input type="checkbox" />', //Render a checkbox instead of text
-            'name'     => 'Name',
-            'username'    => 'Username',
-            'email'  => 'email'
+            'name'     => CustomPlugin::_r('Nombre'),
+            'username'    => CustomPlugin::_r('Usuario'),
+            'email'  => CustomPlugin::_r('Email'),
         );
         return $columns;
     }
