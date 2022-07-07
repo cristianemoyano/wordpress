@@ -4,14 +4,38 @@ include_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
 
 class CustomPlugin {
 
+    public static function title() {
+        return CustomPlugin::_r('Custom Plugin');
+    }
+    public static function page() {
+        return 'customplugin';
+    }
+    public static function new_entry_link_name() {
+        return 'addnewentry';
+    }
+    public static function all_entries_link_name() {
+        return 'allentries';
+    }
+    public static function redirect($query_params) {
+        wp_redirect(get_admin_url().'admin.php?'.$query_params);
+    }
+
+    public static function get_all_entries_link() {
+        return get_admin_url() . 'admin.php?page='.CustomPlugin::all_entries_link_name();
+    }
+
+    public static function get_new_entry_link() {
+       return get_admin_url() . 'admin.php?page='.CustomPlugin::new_entry_link_name();
+    }
+
     public static function create_plugin_table() {
         CustomPluginModel::create_table();
     }
 
     public static function add_menu() {
-        add_menu_page("Custom Plugin", "Custom Plugin","manage_options", "customplugin", "CustomPlugin::admin_entry_list", plugins_url('/customplugin/img/icon.png'));
-        add_submenu_page("customplugin","Todos los registros", "Todos los registros","manage_options", "allentries", "CustomPlugin::admin_entry_list");
-        add_submenu_page("customplugin","Añadir nuevo registro", "Añadir nuevo registro","manage_options", "addnewentry", "CustomPlugin::admin_add_entry");
+        add_menu_page(CustomPlugin::title(), CustomPlugin::title(),"manage_options", CustomPlugin::page(), "CustomPlugin::admin_entry_list", plugins_url('/customplugin/img/icon.png'));
+        add_submenu_page("customplugin",CustomPlugin::_r("Todos los registros"), CustomPlugin::_r("Todos los registros"),"manage_options", CustomPlugin::all_entries_link_name(), "CustomPlugin::admin_entry_list");
+        add_submenu_page("customplugin",CustomPlugin::_r("Añadir nuevo registro"), CustomPlugin::_r("Añadir nuevo registro"),"manage_options", CustomPlugin::new_entry_link_name(), "CustomPlugin::admin_add_entry");
     }
 
     public static function add_stylesheet_to_admin() {

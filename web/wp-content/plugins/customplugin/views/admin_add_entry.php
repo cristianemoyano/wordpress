@@ -10,8 +10,10 @@ $description = $entry ? CustomPlugin::_r('Editar un registro previamente selecci
 
 ?>
 <div class="wrap">
-    <h1 class="wp-heading-inline"><?php CustomPlugin::_('Custom Plugin'); ?></h1>
-    <a href=<?php echo get_admin_url() . 'admin.php?page=allentries' ?> class="page-title-action button-secondary button">Ver entradas</a>
+    <h1 class="wp-heading-inline"><?php echo CustomPlugin::title(); ?></h1>
+    <a href=<?php echo CustomPlugin::get_all_entries_link() ?> class="page-title-action button-secondary button">
+        <?php CustomPlugin::_('Ver entradas'); ?>
+    </a>
 
     <h3><?php echo $lbl_btn_submit; ?></h3>
     <p><?php echo $description; ?></p>

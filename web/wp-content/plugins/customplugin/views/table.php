@@ -218,8 +218,8 @@ class Entry_Table extends WP_List_Table {
                 break;
             case 'edit':
                 $id = esc_sql( $_GET['entry'] );
-                // wp_die( 'EDITED '.$id );
-                wp_redirect(get_admin_url().'admin.php?page=addnewentry&entry='.$id);
+                $query_params = 'page='.CustomPlugin::new_entry_link_name().'&entry='.$id;
+                CustomPlugin::redirect($query_params);
                 break;
             default:
                 // do nothing or something else
