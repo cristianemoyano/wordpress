@@ -8,14 +8,17 @@ class CustomPlugin {
     public static function title() {
         return CustomPlugin::_r('Custom Plugin');
     }
+    public static function page_prefix() {
+        return 'cp_';
+    }
     public static function page() {
-        return 'customplugin';
+        return CustomPlugin::page_prefix().'customplugin';
     }
     public static function new_entry_link_name() {
-        return 'addnewentry';
+        return CustomPlugin::page_prefix().'manage_entry';
     }
     public static function all_entries_link_name() {
-        return 'allentries';
+        return CustomPlugin::page_prefix().'all_entries';
     }
     public static function redirect($query_params) {
         wp_redirect(get_admin_url().'admin.php?'.$query_params);
@@ -35,8 +38,8 @@ class CustomPlugin {
 
     public static function add_menu() {
         add_menu_page(CustomPlugin::title(), CustomPlugin::title(),"manage_options", CustomPlugin::page(), "CustomPlugin::admin_entry_list", plugins_url('/customplugin/img/icon.png'));
-        add_submenu_page("customplugin",CustomPlugin::_r("Todos los registros"), CustomPlugin::_r("Todos los registros"),"manage_options", CustomPlugin::all_entries_link_name(), "CustomPlugin::admin_entry_list");
-        add_submenu_page("customplugin",CustomPlugin::_r("Añadir nuevo registro"), CustomPlugin::_r("Añadir nuevo registro"),"manage_options", CustomPlugin::new_entry_link_name(), "CustomPlugin::admin_add_entry");
+        add_submenu_page(CustomPlugin::page(),CustomPlugin::_r("Todos los registros"), CustomPlugin::_r("Todos los registros"),"manage_options", CustomPlugin::all_entries_link_name(), "CustomPlugin::admin_entry_list");
+        add_submenu_page(CustomPlugin::page(),CustomPlugin::_r("Añadir nuevo registro"), CustomPlugin::_r("Añadir nuevo registro"),"manage_options", CustomPlugin::new_entry_link_name(), "CustomPlugin::admin_add_entry");
     }
 
     public static function add_stylesheet_to_admin() {
