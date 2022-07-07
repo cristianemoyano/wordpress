@@ -2,7 +2,7 @@
 
 require_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
 
-class Entry_Table extends WP_List_Table {
+class EntryTable extends WP_List_Table {
 
     /**
      * Constructor, we override the parent to pass our own arguments

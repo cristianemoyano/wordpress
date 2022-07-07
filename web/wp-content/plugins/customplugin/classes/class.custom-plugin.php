@@ -1,6 +1,7 @@
 <?php
 
 include_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
+include_once(dirname(__DIR__).'/tables/EntryTable.php');
 
 class CustomPlugin {
 
@@ -43,11 +44,8 @@ class CustomPlugin {
     }
 
     public static function prepare_table() {
-        $parent_dir = dirname(__DIR__);
-        include( $parent_dir.'/views/table.php');
-
         //Create an instance of our package class...
-        $testListTable = new Entry_Table();
+        $testListTable = new EntryTable();
         //Fetch, prepare, sort, and filter our data...
         $testListTable->prepare_items();
         

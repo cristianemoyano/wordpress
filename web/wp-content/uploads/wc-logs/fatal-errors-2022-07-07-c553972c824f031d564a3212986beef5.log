@@ -26,3 +26,14 @@ Stack trace:
 
 2022-07-07T01:48:03+00:00 CRITICAL syntax error, unexpected identifier "CustomPlugin" in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php on line 222
 
+2022-07-07T01:59:32+00:00 CRITICAL Uncaught Error: Class "Entry_Table" not found in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php:50
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/admin_entry_list.php(1): CustomPlugin::prepare_table()
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php(101): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): CustomPlugin::admin_entry_list('')
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('custom-plugin_p...')
+#6 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php on line 50
+
