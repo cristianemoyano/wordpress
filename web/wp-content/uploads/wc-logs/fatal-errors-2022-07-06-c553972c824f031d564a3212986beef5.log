@@ -296,3 +296,33 @@ Stack trace:
 #5 {main}
   thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/admin_entry_list.php on line 6
 
+2022-07-06T23:48:12+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php:20
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1445): Entry_Table->column_name(Object(stdClass))
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1390): WP_List_Table->single_row_columns(Object(stdClass))
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1377): WP_List_Table->single_row(Object(stdClass))
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1362): WP_List_Table->display_rows()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/includes/class-wp-list-table.php(1289): WP_List_Table->display_rows_or_placeholder()
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/admin_entry_list.php(16): WP_List_Table->display()
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php(70): include('/Applications/X...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): CustomPlugin::admin_entry_list('')
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('custom-plugin_p...')
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php on line 20
+
+2022-07-06T23:48:42+00:00 CRITICAL Uncaught TypeError: implode(): Argument #1 ($pieces) must be of type array, string given in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php:211
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php(211): implode(',', NULL)
+#1 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php(275): Entry_Table->process_bulk_action()
+#2 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php(40): Entry_Table->prepare_items()
+#3 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/admin_entry_list.php(1): CustomPlugin::prepare_table()
+#4 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/classes/class.custom-plugin.php(70): include('/Applications/X...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(307): CustomPlugin::admin_entry_list('')
+#6 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/class-wp-hook.php(331): WP_Hook->apply_filters('', Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-includes/plugin.php(476): WP_Hook->do_action(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-admin/admin.php(259): do_action('custom-plugin_p...')
+#9 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/wordpress/web/wp-content/plugins/customplugin/views/table.php on line 211
+

@@ -42,25 +42,46 @@ class CustomPlugin {
         return $testListTable;
     }
 
+    public static function alert($msg) {
+        echo "
+            <div class='alert success'>".$msg."</div>
+        ";
+    }
+
+    public static function get_entry() {
+        global $wpdb;
+        $tablename = $wpdb->prefix."customplugin";
+        if(isset($_GET['entry'])){
+            $entry_id = $_GET['entry'];
+            $entry = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE id='".$entry_id."' ");
+            return $entry;
+        }
+    }
+ 
     public static function submit_handler() {
         global $wpdb;
 
+        $is_update = isset($_GET['entry']);
+        $name = isset($_POST['txt_name']) ? $_POST['txt_name'] : "";
+        $uname = isset($_POST['txt_uname']) ? $_POST['txt_uname'] : "";
+        $email = isset($_POST['txt_email']) ? $_POST['txt_email'] : "";
+        $tablename = $wpdb->prefix."customplugin";
         // Add record
-        if(isset($_POST['but_submit'])){
-            $name = $_POST['txt_name'];
-            $uname = $_POST['txt_uname'];
-            $email = $_POST['txt_email'];
-            $tablename = $wpdb->prefix."customplugin";
-
+        if(isset($_POST['but_submit']) && !$is_update){
             if($name != '' && $uname != '' && $email != ''){
                 $check_data = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE username='".$uname."' ");
                 if(count($check_data) == 0){
                 $insert_sql = "INSERT INTO ".$tablename."(name,username,email) values('".$name."','".$uname."','".$email."') ";
                 $wpdb->query($insert_sql);
-                echo "
-                <div class='alert success'>Registro guardado exitosamente.</div>
-                ";
+                CustomPlugin::alert("Registro guardado exitosamente.");
                 }
+            }
+        } elseif (isset($_POST['but_submit']) && $is_update) {
+            $entry = CustomPlugin::get_entry();
+            if(count($entry) == 1){
+                $update_sql = "UPDATE ".$tablename." SET name='".$name."',username='".$uname."',email='".$email."' WHERE id = ".$entry[0]->id.";";
+                $wpdb->query($update_sql);
+                CustomPlugin::alert("Registro actualizado exitosamente.");
             }
         }
     }
@@ -83,6 +104,13 @@ class CustomPlugin {
         _e echo directly whereas __ we need to echo them.
         */
 		return _e( $msg, 'custom-plugin' );
+	}
+
+    public static function _r( $msg ) {
+        /*
+        Return translated text.
+        */
+		return __( $msg, 'custom-plugin' );
 	}
 
 }

@@ -1,10 +1,20 @@
-<?php $testListTable = CustomPlugin::submit_handler(); ?>
+<?php
+$testListTable = CustomPlugin::submit_handler();
+$entry = CustomPlugin::get_entry();
+
+$name = $entry ? $entry[0]->name : "";
+$username = $entry ? $entry[0]->username : "";
+$email = $entry ? $entry[0]->email : "";
+$lbl_btn_submit = $entry ? CustomPlugin::_r('Editar registro') : CustomPlugin::_r('Añadir registro');
+$description = $entry ? CustomPlugin::_r('Editar un registro previamente seleccionado.') : CustomPlugin::_r('Crear un nuevo registro en este sitio.');
+
+?>
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php CustomPlugin::_('Custom Plugin'); ?></h1>
     <a href=<?php echo get_admin_url() . 'admin.php?page=allentries' ?> class="page-title-action button-secondary button">Ver entradas</a>
 
-    <h3><?php CustomPlugin::_('Añadir registro'); ?></h3>
-    <p><?php CustomPlugin::_('Crear un nuevo registro en este sitio.'); ?></p>
+    <h3><?php echo $lbl_btn_submit; ?></h3>
+    <p><?php echo $description; ?></p>
     
 
     <form class="form-table" method='post' action=''>
@@ -15,7 +25,7 @@
                 <br>
                 <span class="description">(<?php CustomPlugin::_('requerido'); ?>)</span>
             </th>
-            <td><input class="regular-text validate[required]" name="txt_name" type="text" aria-required="true" autofocus required/></td>
+            <td><input class="regular-text validate[required]" name="txt_name" type="text" aria-required="true" value="<?php echo $name;?>" autofocus required /></td>
         </tr>
 
         <tr class="form-required">
@@ -24,7 +34,7 @@
                 <br>
                 <span class="description">(<?php CustomPlugin::_('requerido'); ?>)</span>
             </th>
-            <td><input class="regular-text validate[required]" name="txt_uname" type="text" aria-required="true" autofocus required/></td>
+            <td><input class="regular-text validate[required]" name="txt_uname" type="text" aria-required="true" value="<?php echo $username;?>" autofocus required/></td>
         </tr>
 
         <tr class="form-required">
@@ -33,11 +43,11 @@
                 <br>
                 <span class="description">(<?php CustomPlugin::_('requerido'); ?>)</span>
             </th>
-            <td><input class="regular-text validate[required]" name="txt_email" type="text" aria-required="true" autofocus required/></td>
+            <td><input class="regular-text validate[required]" name="txt_email" type="text" aria-required="true" value="<?php echo $email;?>" autofocus required/></td>
         </tr>
         
         <td>&nbsp;</td>
-        <td><input class="button-primary button" type='submit' name='but_submit' value='<?php CustomPlugin::_('Añadir registro'); ?>'></td>
+        <td><input class="button-primary button" type='submit' name='but_submit' value='<?php echo $lbl_btn_submit; ?>'></td>
         </tr>
     </table>
     </form>

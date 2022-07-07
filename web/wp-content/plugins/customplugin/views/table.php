@@ -14,9 +14,16 @@ class Entry_Table extends WP_List_Table {
        'ajax'   => false //We won't support Ajax for this table
        ) );
      }
+     
+    function column_name($item) {
+        $value = get_object_vars($item); 
+        $actions = array(
+            'edit' => sprintf('<a href="?page=%s&action=%s&entry=%s">Editar</a>',$_REQUEST['page'],'edit',$value['id']),
+            'delete' => sprintf('<a href="?page=%s&action=%s&entry=%s">Eliminar</a>',$_REQUEST['page'],'delete',$value['id']),
+        );
+        return sprintf('%1$s %2$s', $value['name'], $this->row_actions($actions) );
+    }
  
- 
-
 
     /** ************************************************************************
      * Recommended. This method is called when the parent class can't find a method
@@ -168,7 +175,7 @@ class Entry_Table extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'delete'    => 'Eliminar'
+            'bulk-delete'    => 'Eliminar'
         );
         return $actions;
     }
@@ -200,12 +207,22 @@ class Entry_Table extends WP_List_Table {
 
         switch ( $action ) {
 
-            case 'delete':
-                $delete_ids = implode(",",$_GET['bulk-item-selection']);
-                
+            case 'bulk-delete':
+                $safe_ids = esc_sql( $_GET['bulk-item-selection'] );
+                $delete_ids = implode(",",$safe_ids);
                 $wpdb->query("DELETE FROM ".$tablename." WHERE id in (".$delete_ids.")");
+                CustomPlugin::alert("Registros eliminados exitosamente.");
                 break;
-
+            case 'delete':
+                $id = esc_sql( $_GET['entry'] );
+                $wpdb->query("DELETE FROM ".$tablename." WHERE id=".$id);
+                CustomPlugin::alert("Registro #".$id." eliminado exitosamente.");
+                break;
+            case 'edit':
+                $id = esc_sql( $_GET['entry'] );
+                // wp_die( 'EDITED '.$id );
+                wp_redirect(get_admin_url().'admin.php?page=addnewentry&entry='.$id);
+                break;
             default:
                 // do nothing or something else
                 return;
