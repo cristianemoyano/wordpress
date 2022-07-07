@@ -1,5 +1,6 @@
 <?php
 
+include_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
 
 class Entry_Table extends WP_List_Table {
 
@@ -200,9 +201,6 @@ class Entry_Table extends WP_List_Table {
 
         }
 
-        global $wpdb; //This is used only if making any database queries
-        $tablename = $wpdb->prefix."customplugin";
-
         $action = $this->current_action();
 
         switch ( $action ) {
@@ -210,12 +208,12 @@ class Entry_Table extends WP_List_Table {
             case 'bulk-delete':
                 $safe_ids = esc_sql( $_GET['bulk-item-selection'] );
                 $delete_ids = implode(",",$safe_ids);
-                $wpdb->query("DELETE FROM ".$tablename." WHERE id in (".$delete_ids.")");
+                CustomPluginModel::bulk_delete($delete_ids);
                 CustomPlugin::alert("Registros eliminados exitosamente.");
                 break;
             case 'delete':
                 $id = esc_sql( $_GET['entry'] );
-                $wpdb->query("DELETE FROM ".$tablename." WHERE id=".$id);
+                CustomPluginModel::delete($id);
                 CustomPlugin::alert("Registro #".$id." eliminado exitosamente.");
                 break;
             case 'edit':
@@ -240,7 +238,6 @@ class Entry_Table extends WP_List_Table {
      * $this->set_pagination_args(), although the following properties and methods
      * are frequently interacted with here...
      * 
-     * @global WPDB $wpdb
      * @uses $this->_column_headers
      * @uses $this->items
      * @uses $this->get_columns()
@@ -249,13 +246,11 @@ class Entry_Table extends WP_List_Table {
      * @uses $this->set_pagination_args()
      **************************************************************************/
     function prepare_items() {
-        global $wpdb; //This is used only if making any database queries
 
         /**
          * First, lets decide how many records per page to show
          */
         $per_page = 5;
-        $tablename = $wpdb->prefix."customplugin";
         
         /**
          * REQUIRED. Now we need to define our column headers. This includes a complete
@@ -297,9 +292,9 @@ class Entry_Table extends WP_List_Table {
 
         if (isset($_GET['s'])) {
             $search = $_GET['s'];
-            $data = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE name like '%{$search}%' or username like '%{$search}%' or email like '%{$search}%'");
+            $data = CustomPluginModel::filter($search);
         } else {
-            $data = $wpdb->get_results("SELECT * FROM ".$tablename." order by id desc");
+            $data = CustomPluginModel::all();
         }
 
 

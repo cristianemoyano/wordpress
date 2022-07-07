@@ -1,23 +1,11 @@
 <?php
 
+include_once(dirname(__DIR__).'/models/CustomPluginModel.php' );
+
 class CustomPlugin {
 
     public static function create_plugin_table() {
-        global $wpdb;
-        $charset_collate = $wpdb->get_charset_collate();
-    
-        $tablename = $wpdb->prefix."customplugin";
-    
-        $sql = "CREATE TABLE $tablename (
-        id mediumint(11) NOT NULL AUTO_INCREMENT,
-        name varchar(80) NOT NULL,
-        username varchar(80) NOT NULL,
-        email varchar(80) NOT NULL,
-        PRIMARY KEY  (id)
-        ) $charset_collate;";
-
-        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-        dbDelta( $sql );
+        CustomPluginModel::create_table();
     }
 
     public static function add_menu() {
@@ -53,7 +41,7 @@ class CustomPlugin {
         $tablename = $wpdb->prefix."customplugin";
         if(isset($_GET['entry'])){
             $entry_id = $_GET['entry'];
-            $entry = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE id='".$entry_id."' ");
+            $entry = CustomPluginModel::get($entry_id);
             return $entry;
         }
     }
@@ -71,16 +59,14 @@ class CustomPlugin {
             if($name != '' && $uname != '' && $email != ''){
                 $check_data = $wpdb->get_results("SELECT * FROM ".$tablename." WHERE username='".$uname."' ");
                 if(count($check_data) == 0){
-                $insert_sql = "INSERT INTO ".$tablename."(name,username,email) values('".$name."','".$uname."','".$email."') ";
-                $wpdb->query($insert_sql);
-                CustomPlugin::alert("Registro guardado exitosamente.");
+                    CustomPluginModel::insert($name, $uname,$email);
+                    CustomPlugin::alert("Registro guardado exitosamente.");
                 }
             }
         } elseif (isset($_POST['but_submit']) && $is_update) {
             $entry = CustomPlugin::get_entry();
             if(count($entry) == 1){
-                $update_sql = "UPDATE ".$tablename." SET name='".$name."',username='".$uname."',email='".$email."' WHERE id = ".$entry[0]->id.";";
-                $wpdb->query($update_sql);
+                CustomPluginModel::update($entry[0]->id, $name, $uname,$email);
                 CustomPlugin::alert("Registro actualizado exitosamente.");
             }
         }
