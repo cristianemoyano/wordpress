@@ -1,11 +1,11 @@
 <?php
 /*
    Plugin Name: Custom plugin
-   Plugin URI: https://makitweb.com
+   Plugin URI: https://no-url.com
    description: A simple custom plugin
    Version: 1.0.0
    Author: Cristian Moyano
-   Author URI: https://makitweb.com/about
+   Author URI: https://no-url.com/about
 */
 
 // WP TABLE
